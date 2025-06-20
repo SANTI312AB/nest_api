@@ -1,0 +1,80 @@
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "foreignKeys"   // utilizar InnoDB para relaciones
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Product {
+  id          Int      @id @default(autoincrement()) @map("IDPRODUCTO")
+  name        String   @db.VarChar(255) @map("NOMBRE")
+  price       Float    @db.Float @map("PRECIO")
+  description String?  @db.Text @map("DESCRIPCION")
+  createdAt   DateTime @default(now()) @map("CREATED_AT")
+  updatedAt   DateTime @updatedAt @map("UPDATED_AT")
+  categorias ProductCategory[]
+  favorites  Favorite[]
+  @@map("productos")
+}
+
+model Category {
+  id          Int      @id @default(autoincrement()) @map("IDCATEGORIA")
+  name        String   @db.VarChar(255) @map("NOMBRE")
+  description String?  @db.Text @map("DESCRIPCION")
+  createdAt   DateTime @default(now()) @map("CREATED_AT")
+  updatedAt   DateTime @updatedAt @map("UPDATED_AT")
+
+  productos   ProductCategory[]
+
+
+  @@map("categorias")
+}
+
+model ProductCategory {
+  productId  Int     @map("IDPRODUCTO")
+  categoryId Int     @map("IDCATEGORIA")
+
+  product  Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Restrict)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Restrict)
+
+  @@id([productId, categoryId])
+  @@index([productId])
+  @@index([categoryId])
+  @@map("productos_categorias")
+}
+
+
+model User {
+  id        Int      @id @default(autoincrement()) @map("IDUSUARIO")
+  username  String   @unique @db.VarChar(255) @map("NOMBRE_USUARIO")
+  email     String   @unique @db.VarChar(255) @map("EMAIL")
+  password  String   @db.VarChar(255) @map("CONTRASENA")
+  createdAt DateTime @default(now()) @map("CREATED_AT")
+  updatedAt DateTime @updatedAt @map("UPDATED_AT")
+  isActive  Boolean  @default(true) @map("ACTIVO")
+  favoritedBy Favorite[]
+
+  @@map("usuarios")
+}
+
+model Favorite {
+  userId    Int      @map("IDUSUARIO")
+  productId Int      @map("IDPRODUCTO")
+  createdAt DateTime @default(now()) @map("CREATED_AT")
+
+  // Relaciones hacia los otros modelos
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Restrict)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Restrict)
+
+  @@id([userId, productId])
+  @@index([userId])
+  @@index([productId])
+  @@map("favoritos")
+}
+
+
+
+
