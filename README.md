@@ -97,18 +97,23 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
-## Características adicionales
+## Características adicionales / Additional Features
 
-Esta API incluye las siguientes integraciones y herramientas:
+Esta API incluye las siguientes integraciones y herramientas:  
+This API includes the following integrations and tools:
 
-- **Autenticación JWT con llaves PEM:**  
-  El sistema de autenticación utiliza JSON Web Tokens (JWT) firmados y validados mediante llaves PEM, lo que garantiza mayor seguridad en el manejo de tokens.
+- **Autenticación JWT con llaves PEM / JWT Authentication with PEM Keys:**  
+  El sistema de autenticación utiliza JSON Web Tokens (JWT) firmados y validados mediante llaves PEM, lo que garantiza mayor seguridad en el manejo de tokens.  
+  The authentication system uses JSON Web Tokens (JWT) signed and validated with PEM keys, ensuring greater security in token management.
 
 - **ORM Prisma:**  
-  Se utiliza Prisma como ORM para la gestión eficiente y tipada de la base de datos, facilitando la manipulación de datos y migraciones.
+  Se utiliza Prisma como ORM para la gestión eficiente y tipada de la base de datos, facilitando la manipulación de datos y migraciones.  
+  Prisma is used as the ORM for efficient and type-safe database management, making data manipulation and migrations easier.
 
-- **Validaciones con DTO:**  
-  La validación de datos de entrada se realiza mediante Data Transfer Objects (DTO), asegurando que las peticiones cumplan con los formatos y restricciones esperadas.
+- **Validaciones con DTO / Validations with DTO:**  
+  La validación de datos de entrada se realiza mediante Data Transfer Objects (DTO), asegurando que las peticiones cumplan con los formatos y restricciones esperadas.  
+  Input data validation is performed using Data Transfer Objects (DTO), ensuring that requests meet the expected formats and constraints.
 
-- **Documentación interactiva con Swagger:**  
-  La API cuenta con documentación generada automáticamente usando Swagger, permitiendo explorar y probar los endpoints de manera sencilla desde el navegador.
+- **Documentación interactiva con Swagger / Interactive Documentation with Swagger:**  
+  La API cuenta con documentación generada automáticamente usando Swagger, permitiendo explorar y probar los endpoints de manera sencilla desde el navegador.  
+  The API features automatically generated documentation using Swagger, allowing you to easily explore and test endpoints from your browser.
