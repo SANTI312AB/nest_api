@@ -96,3 +96,19 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Características adicionales
+
+Esta API incluye las siguientes integraciones y herramientas:
+
+- **Autenticación JWT con llaves PEM:**  
+  El sistema de autenticación utiliza JSON Web Tokens (JWT) firmados y validados mediante llaves PEM, lo que garantiza mayor seguridad en el manejo de tokens.
+
+- **ORM Prisma:**  
+  Se utiliza Prisma como ORM para la gestión eficiente y tipada de la base de datos, facilitando la manipulación de datos y migraciones.
+
+- **Validaciones con DTO:**  
+  La validación de datos de entrada se realiza mediante Data Transfer Objects (DTO), asegurando que las peticiones cumplan con los formatos y restricciones esperadas.
+
+- **Documentación interactiva con Swagger:**  
+  La API cuenta con documentación generada automáticamente usando Swagger, permitiendo explorar y probar los endpoints de manera sencilla desde el navegador.
